@@ -1,5 +1,4 @@
 package com.example.sliderhw_final;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -11,16 +10,11 @@ import java.util.List;
 public class RandomizeController implements Button.OnClickListener {
     private ImageController imageController;
     private ImageButton[][] board;
-    
-
     public RandomizeController(ImageButton[][] b, ImageController Icon) {
         Icon.set_complete(false);
         imageController = Icon;
         board = b;
-        
-        
     }
-
     @Override
     public void onClick(View v) {
         Integer[] temp = new Integer[16];
@@ -32,9 +26,7 @@ public class RandomizeController implements Button.OnClickListener {
         // intialize the random starting position for the puzzle
         List<Integer> intList = Arrays.asList(temp);
         Collections.shuffle(intList); // randomize the list
-
         intList.toArray(temp);
-
         for(int i = 0; i < 16; i++) { // main loop that draws the board
             if (x == 4) { // if col=4 then rap around to the next row
                 y++;

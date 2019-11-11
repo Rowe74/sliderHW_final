@@ -1,3 +1,6 @@
+// Jim Rowe
+// 11/10/2019
+
 package com.example.sliderhw_final;
 
 import android.support.v7.app.AppCompatActivity;

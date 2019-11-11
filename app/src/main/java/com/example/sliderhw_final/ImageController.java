@@ -1,35 +1,25 @@
 package com.example.sliderhw_final;
-
 import android.view.View;
 import android.widget.ImageButton;
-
 // brain of the game, iterats through every position checking for the proper slider, a lot of copy and paste
 public class ImageController implements ImageButton.OnClickListener {
-
     private ImageButton[][] board;
     private boolean is_complete;
     private MainActivity main;
-    
-
     public ImageController (MainActivity Main) {
         board = new ImageButton[4][4];
         main = Main;
         is_complete = true;
         grid_defaults();
     }
-
     public void set_complete(boolean complete) {  // setter for a complete game
         is_complete = complete;
     }
-    
     public ImageButton[][] get_board() {  // getter for board
         return board;
     }
-
-
        // defaults to ordered board if nothing is drawn
     private void grid_defaults(){
-
         board[0][0] = main.findViewById(R.id.slide1);
         board[0][1] = main.findViewById(R.id.slide2);
         board[0][2] = main.findViewById(R.id.slide3);
@@ -46,15 +36,12 @@ public class ImageController implements ImageButton.OnClickListener {
         board[3][1] = main.findViewById(R.id.slide14);
         board[3][2] = main.findViewById(R.id.slide15);
         board[3][3] = main.findViewById(R.id.slide16);
-
-
     }
     @Override
     public void onClick(View v) {
         if(is_complete) {
             return;
         }
-
         switch (v.getId()) {
             case R.id.slide1:
 
@@ -88,8 +75,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
-
                 break;
             case R.id.slide2:
 
@@ -110,14 +95,12 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 if(board[0][0].getBackground().getConstantState() ==
                         board[0][1].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
                     board[0][0].setBackground(board[0][1].getBackground());
                     board[0][1].setBackgroundResource(R.drawable.blank);
                     return;
                 }
-
                 for(int i = 1; i < 4; i++) {
                     if(board[i][1].getBackground().getConstantState() ==
                             board[i][1].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
@@ -130,7 +113,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 break;
             case R.id.slide3:
 
@@ -151,14 +133,12 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 if(board[0][3].getBackground().getConstantState() ==
                         board[0][3].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
                     board[0][3].setBackground(board[0][2].getBackground());
                     board[0][2].setBackgroundResource(R.drawable.blank);
                     return;
                 }
-
                 for(int i = 1; i < 4; i++) {
                     if(board[i][2].getBackground().getConstantState() ==
                             board[i][2].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
@@ -171,7 +151,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 break;
             case R.id.slide4:
 
@@ -179,7 +158,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         board[0][3].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
                     break;
                 }
-
                 for(int i = 2; i >= 0; i--) {
                     if(board[0][i].getBackground().getConstantState() ==
                             board[0][i].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
@@ -192,7 +170,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 for(int i = 1; i < 4; i++) {
                     if(board[i][3].getBackground().getConstantState() ==
                             board[i][3].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
@@ -205,7 +182,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 break;
             case R.id.slide5:
 
@@ -213,7 +189,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         board[1][0].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
                     break;
                 }
-
                 for(int i = 1; i < 4; i++) {
                     if(board[1][i].getBackground().getConstantState() ==
                             board[1][i].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
@@ -246,7 +221,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 break;
             case R.id.slide6:
 
@@ -267,7 +241,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 if(board[1][0].getBackground().getConstantState() ==
                         board[1][1].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
                     board[1][0].setBackground(board[1][1].getBackground());
@@ -363,7 +336,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 if(board[0][3].getBackground().getConstantState() ==
                         board[1][3].getResources().getDrawable(R.drawable.blank, null).getConstantState()) {
                     board[0][3].setBackground(board[1][3].getBackground());
@@ -383,7 +355,6 @@ public class ImageController implements ImageButton.OnClickListener {
                         }
                     }
                 }
-
                 break;
             case R.id.slide9:
 
@@ -767,7 +738,7 @@ public class ImageController implements ImageButton.OnClickListener {
 
                 break;
         }
-        v.invalidate();
+        v.invalidate();  // redraw after the board has been changed
     }
 
 }

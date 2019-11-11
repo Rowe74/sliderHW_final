@@ -1,16 +1,11 @@
 package com.example.sliderhw_final;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-
 // resets the board to default phase
 public class ResetController implements Button.OnClickListener {
-
     private ImageController imageController;
     private ImageButton[][] board;
-
-
     public ResetController(ImageButton[][] b, ImageController Icon) {
         board = b;
         imageController = Icon;
